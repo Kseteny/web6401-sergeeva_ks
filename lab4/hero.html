@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Путеводитель по Хоринису — анкета героя</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="hero.js" defer></script>
+</head>
+<body class="page page--footer-bottom">
+
+    <header class="site-header">
+        <h1 class="site-header__title">Путеводитель по Хоринису</h1>
+        <p class="site-header__subtitle">для героя, которого снова все забыли</p>
+
+        <nav class="menu">
+            <a class="menu__link" href="index.html">Главная</a>
+            <a class="menu__link" href="bestiary.html">Бестиарий</a>
+            <a class="menu__link" href="advice.html">Советы</a>
+            <a class="menu__link" href="hero.html">Анкета героя</a>
+        </nav>
+    </header>
+
+    <main class="page__main page__main--hero">
+        <section class="card">
+            <h2 class="card__title card__title--centered">Анкета героя</h2>
+
+            <form class="hero-form" action="/api/heroes" method="post">
+                <label for="nickname">Имя или прозвище героя</label>
+                <input class="hero-form__input" id="nickname" name="nickname" type="text" maxlength="50" required>
+
+                <label for="level">Уровень героя</label>
+                <input class="hero-form__input" id="level" name="level" type="number" min="1" max="100" value="1" required>
+
+                <label class="hero-form__consent">
+                    <input class="hero-form__checkbox" name="consent" type="checkbox" value="yes" required>
+                    Согласие на отправку анкеты
+                </label>
+
+                <button class="hero-form__submit" type="submit">Отправить анкету</button>
+                <p id="hero-status" role="status"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Лабораторная работа №4, Сергеева К.С., 2026. Фанатский сайт по игре «Готика».</p>
+    </footer>
+
+</body>
+</html>
