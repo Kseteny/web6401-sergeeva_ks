@@ -1,0 +1,331 @@
+:root {
+    --page-bg: #2e2a26;
+    --text-color: #3a2f25;
+    --heading-color: #7a3b12;
+    --header-bg: #1c1916;
+    --gold: #e0a030;
+    --gold-glow: #ffd45c;
+    --muted-text: #a89c8c;
+    --brown: #5a4632;
+    --light-text: #f3e6c8;
+    --table-line: #c9b48f;
+    --card-bg: #e8dcc0;
+    --accent-color: #a12a1a;
+    --link-color: #0000ee;
+    --visited-link-color: #551a8b;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Общие стили */
+.page {
+    margin: 0;
+    font-family: Georgia, serif;
+    background-color: var(--page-bg);
+    color: var(--text-color);
+}
+
+.card__title {
+    color: var(--heading-color);
+}
+
+.site-header {
+    background-color: var(--header-bg);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid var(--gold);
+}
+
+.page__main {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.site-footer {
+    text-align: center;
+    color: var(--muted-text);
+    font-size: 14px;
+    padding: 20px;
+}
+
+.creature-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.creature-table__cell {
+    padding: 10px;
+    border-bottom: 1px solid var(--table-line);
+}
+
+.creature-table__cell--heading {
+    background-color: var(--brown);
+    color: var(--light-text);
+    border-bottom: 0;
+}
+
+.site-header__title {
+    margin: 0;
+    color: var(--gold);
+    font-size: 40px;
+}
+
+.site-header__subtitle {
+    margin: 5px 0 15px;
+    color: var(--muted-text);
+    font-style: italic;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 3px solid var(--brown);
+}
+
+.card__link {
+    color: var(--link-color);
+}
+
+.card__link:visited {
+    color: var(--visited-link-color);
+}
+
+.card__accent {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.creature-table__cell--left {
+    text-align: left;
+}
+
+.creature-table__cell--center {
+    text-align: center;
+}
+
+.creature-table__cell--right {
+    text-align: right;
+}
+
+.menu__link {
+    color: var(--light-text);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.menu__link:hover {
+    color: var(--gold);
+}
+
+/* Flexbox на главной странице */
+.page--home {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-header--home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.site-header__subtitle--compact {
+    margin: 0;
+}
+
+.menu--home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu--home .menu__link {
+    margin: 0;
+}
+
+.home {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 20px;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.home__card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1 1 340px;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.home__card-title,
+.home__list {
+    margin: 0;
+}
+
+.home__intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.home__text {
+    flex: 1 1 180px;
+    min-width: 0;
+}
+
+.home__text p:first-child {
+    margin-top: 0;
+}
+
+.home__sword {
+    width: 90px;
+    animation: sword-float 2s ease-in-out infinite alternate;
+}
+
+.site-footer--home {
+    display: flex;
+    justify-content: center;
+}
+
+.site-footer__text--compact {
+    margin: 0;
+}
+
+/* Страницы с подвалом у нижнего края окна */
+.page--bestiary,
+.page--footer-bottom {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.bestiary {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(250px, 1fr);
+    align-items: start;
+    gap: 20px;
+    width: 100%;
+}
+
+.bestiary__card {
+    margin-bottom: 0;
+}
+
+.bestiary__card--table {
+    overflow-x: auto;
+}
+
+.bestiary__reference-title {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 650px) {
+    .bestiary {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Анимация меча */
+@keyframes sword-float {
+    from {
+        transform: translateY(0);
+        filter: drop-shadow(0 0 0 var(--gold));
+    }
+
+    to {
+        transform: translateY(-8px);
+        filter: drop-shadow(0 0 6px var(--gold));
+    }
+}
+
+/* Сундук на странице «Советы» */
+.chest {
+    float: right;
+    width: 130px;
+    margin: 0 0 0 20px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.chest__image {
+    display: block;
+    width: 100%;
+}
+
+.chest:focus-visible {
+    outline: 2px solid var(--heading-color);
+}
+
+.chest__lid {
+    transition: transform 0.4s ease;
+}
+
+.chest__gold {
+    opacity: 0;
+    filter: drop-shadow(0 0 4px var(--gold-glow))
+            drop-shadow(0 0 12px var(--gold-glow));
+    transition: opacity 0.4s ease;
+}
+
+.chest--open .chest__lid {
+    transform: translateY(-26px);
+}
+
+.chest--open .chest__gold {
+    opacity: 1;
+}
+
+/* Анкета героя */
+.page__main--hero {
+    max-width: 460px;
+    margin-top: 20px;
+}
+
+.card__title--centered {
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.hero-form {
+    display: grid;
+    gap: 10px;
+}
+
+.hero-form__input,
+.hero-form__submit {
+    padding: 8px 10px;
+    border: 1px solid var(--brown);
+    font: inherit;
+    color: var(--text-color);
+}
+
+.hero-form__input {
+    width: 100%;
+    background-color: var(--light-text);
+}
+
+.hero-form__checkbox {
+    accent-color: var(--heading-color);
+}
+
+.hero-form__submit {
+    justify-self: stretch;
+    background-color: var(--gold);
+    cursor: pointer;
+}

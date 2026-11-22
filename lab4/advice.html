@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Путеводитель по Хоринису — советы</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="chest.js" defer></script>
+</head>
+<body class="page page--footer-bottom">
+
+    <header class="site-header">
+        <h1 class="site-header__title">Путеводитель по Хоринису</h1>
+        <p class="site-header__subtitle">для героя, которого снова все забыли</p>
+        <nav class="menu">
+            <a class="menu__link" href="index.html">Главная</a>
+            <a class="menu__link" href="bestiary.html">Бестиарий</a>
+            <a class="menu__link" href="advice.html">Советы</a>
+            <a class="menu__link" href="hero.html">Анкета героя</a>
+        </nav>
+    </header>
+
+    <main class="page__main">
+        <section class="card">
+            <button class="chest" id="chest-button" type="button"
+                    aria-label="Открыть сундук" aria-pressed="false">
+                <svg class="chest__image" viewBox="0 0 200 170" aria-hidden="true">
+                    <!-- Внутренняя часть сундука -->
+                    <ellipse cx="100" cy="70" rx="70" ry="12" fill="var(--brown)" />
+
+                    <!-- Золото -->
+                    <g class="chest__gold" fill="var(--gold)"
+                       stroke="var(--heading-color)" stroke-width="2">
+                        <circle cx="63" cy="68" r="10" />
+                        <circle cx="84" cy="61" r="12" />
+                        <circle cx="105" cy="58" r="12" />
+                        <circle cx="125" cy="64" r="11" />
+                        <circle cx="143" cy="69" r="9" />
+                    </g>
+
+                    <!-- Корпус -->
+                    <rect x="30" y="72" width="140" height="78" fill="var(--heading-color)" />
+                    <rect x="30" y="72" width="140" height="7" fill="var(--brown)" />
+                    <path d="M50 79h10v71H50z M140 79h10v71h-10z" fill="var(--gold)" />
+
+                    <!-- Крышка и замок -->
+                    <g class="chest__lid">
+                        <path d="M30 72 C30 30 170 30 170 72 Z" fill="var(--heading-color)" />
+                        <rect x="30" y="67" width="140" height="7" fill="var(--brown)" />
+                        <rect x="88" y="67" width="24" height="24" rx="3" fill="var(--gold)" />
+                        <circle cx="100" cy="77" r="4" fill="var(--text-color)" />
+                    </g>
+                </svg>
+            </button>
+            <h2 class="card__title">Советы выживания</h2>
+            <ol>
+                <li>Разговаривай со всеми подряд. Даже с теми, кто сидит у костра и молчит.</li>
+                <li>Сохраняйся <span class="card__accent">почаще</span>. Нет, ещё чаще.</li>
+                <li>Не воруй, когда на тебя смотрят. Особенно если смотрит хозяин сундука.</li>
+                <li>Собирай все растения: пригодятся для зелий (и для продажи).</li>
+                <li>Не трогай кур в городе. Просто поверь.</li>
+            </ol>
+        </section>
+
+        <section class="card">
+            <h2 class="card__title">Главная ошибка новичка</h2>
+            <p>
+                Увидеть одинокого падальщика и подумать: <i>«Это же просто большая курица»</i>.
+                Через несколько секунд обычно приходит понимание,
+                что <span class="card__accent">курица побеждает</span>.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Лабораторная работа №4, Сергеева К.С., 2026. Фанатский сайт по игре «Готика».</p>
+    </footer>
+
+</body>
+</html>
